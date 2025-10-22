@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "ms-dotnettools.vscode-dotnet-runtime",
+    "ms-dotnettools.csharp-dev-kit",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "unity.unity-debug",
+    "Nuget.reverse-package-search",
+    "BadgerCode.event-browser",
+    "SonarSource.sonarlint-vscode",
+    "ms-vscode.makefile-tools"
+  ]
+}

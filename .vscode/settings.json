@@ -1,0 +1,132 @@
+{
+  // ============================================================================
+  // GITHUB COPILOT CHAT CONFIGURATION
+  // ============================================================================
+  
+  // Habilitar características de Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true
+  },
+
+  // Configuración de Chat
+  "github.copilot.chat.locusOfControlForCompletions": "editor",
+  "github.copilot.chat.welcomeMessage": false,
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
+
+  // ============================================================================
+  // C# Y CSHARP INTELLISENSE
+  // ============================================================================
+  
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.inlayHints.enabled": "offUnlessPressed"
+  },
+
+  // OmniSharp configuration
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.analyzeOpenDocumentsOnly": false,
+  "omnisharp.useModernNet": true,
+
+  // ============================================================================
+  // UNITY-SPECIFIC SETTINGS
+  // ============================================================================
+  
+  // Asociaciones de archivo para metafiles y configuraciones Unity
+  "files.associations": {
+    "*.meta": "yaml",
+    "*.asmdef": "json",
+    "*.asmref": "json",
+    "*.inputactions": "json",
+    "*.unity": "yaml"
+  },
+
+  // Configuración YAML para assets de Unity
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+
+  // ============================================================================
+  // EXCLUSIONES PARA MEJOR RENDIMIENTO
+  // ============================================================================
+  
+  // Excluir artefactos de construcción del explorador
+  "files.exclude": {
+    "**/Library": true,
+    "**/Temp": true,
+    "**/Obj": true,
+    "**/Build": true,
+    "**/Logs": true,
+    "**/UserSettings": true,
+    "**/*.csproj": true,
+    "**/*.sln": true,
+    "**/Packages": false
+  },
+
+  // Excluir de búsqueda global
+  "search.exclude": {
+    "**/Library": true,
+    "**/Temp": true,
+    "**/Obj": true,
+    "**/Build": true,
+    "**/Logs": true,
+    "**/UserSettings": true,
+    "**/Packages": true,
+    "**/node_modules": true,
+    "**/.vs": true
+  },
+
+  // ============================================================================
+  // EDITOR PREFERENCES
+  // ============================================================================
+  
+  "editor.rulers": [80, 120],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "ms-dotnettools.csharp",
+  "editor.suggest.showSnippets": true,
+  "editor.semanticHighlighting.enabled": true,
+
+  // ============================================================================
+  // GIT CONFIGURATION
+  // ============================================================================
+  
+  "git.ignoreLimitWarning": true,
+  "git.showProgress": true,
+
+  // ============================================================================
+  // MARKDOWN (para AGENTS.md y documentación)
+  // ============================================================================
+  
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ============================================================================
+  // TELEMETRY & PRIVACY
+  // ============================================================================
+  
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false
+}
