@@ -1,4 +1,6 @@
 using UnityEngine;
+using SiKNessTycoon.Systems.AFK;
+using SiKNessTycoon.Systems.Economy;
 
 namespace SiKNessTycoon.Core
 {
@@ -30,16 +32,54 @@ namespace SiKNessTycoon.Core
             }
         }
 
+        private void Start()
+        {
+            // Check AFK reward after all systems initialized
+            CheckAFKReward();
+        }
+
         private void InitializeGame()
         {
-            // Ensure core managers exist
+            // Ensure core managers exist (order matters!)
             EnsureManagerExists<ResourceManager>();
             EnsureManagerExists<AFKSystem>();
+            EnsureManagerExists<EconomySystem>();
 
             // Subscribe to key events
             GameEvents.OnGamePaused += HandleGamePaused;
+            GameEvents.OnUpgradeApplied += HandleUpgradeApplied;
 
             Debug.Log("GameManager initialized");
+        }
+        
+        private void CheckAFKReward()
+        {
+            var afkSystem = FindObjectOfType<AFKSystem>();
+            if (afkSystem != null && afkSystem.HasPendingReward())
+            {
+                var reward = afkSystem.ClaimAFKReward();
+                
+                // Find and show AFK overlay
+                var overlay = FindObjectOfType<UI.Overlays.AFKOverlay>();
+                if (overlay != null)
+                {
+                    overlay.Show(reward);
+                }
+                else
+                {
+                    Debug.LogWarning("AFKOverlay not found in scene. AFK reward applied but not displayed.");
+                }
+            }
+        }
+        
+        private void HandleUpgradeApplied(string upgradeId, float bonus)
+        {
+            // Apply upgrade to economy system
+            var economy = FindObjectOfType<EconomySystem>();
+            if (economy != null)
+            {
+                economy.ApplyUpgrade(upgradeId, bonus);
+            }
         }
 
         private void EnsureManagerExists<T>() where T : Component
