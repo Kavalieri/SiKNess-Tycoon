@@ -16,7 +16,6 @@ Por qué:
 
 - Proyecto Unity en raíz: `Assets/`, `Packages/`, `ProjectSettings/`
 - Documentación en `docs/`
-- Evita carpetas `Assets/` duplicadas
 
 ## .gitignore (Unity)
 
